@@ -1,7 +1,7 @@
 Hibernate learning made easy
 =========================
 
-Sample code snippet for getting started with Hibernate. 
+Sample code snippet for getting started with Hibernate. Read related blog post [here](http://tirthalpatel.blogspot.in/2014/04/hibernate-learning-made-easy.html).
 
 
 Steps to create new Hibernate project using Maven
