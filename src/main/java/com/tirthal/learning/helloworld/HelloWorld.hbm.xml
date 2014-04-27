@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2014 2:35:48 PM by Hibernate Tools 3.4.0.CR1 -->
+
+<hibernate-mapping>
+
+	<!-- Configure mapping between java class entity and table -->
+    <class name="com.tirthal.learning.helloworld.HelloWorld" table="HELLO_WORLD">
+
+    	<!-- Java entity property names and table column names -->
+        <id name="id" type="int">
+            <column name="ID" />            
+        </id>
+        <property name="message" type="java.lang.String">
+            <column name="MESSAGE" />
+        </property>
+    </class>
+</hibernate-mapping>

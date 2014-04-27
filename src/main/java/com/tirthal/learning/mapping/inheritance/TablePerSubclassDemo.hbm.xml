@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2014 6:40:45 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+
+    <class name="com.tirthal.learning.mapping.inheritance.Item" table="TPS_ITEM">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="itemCode" type="java.lang.String">
+            <column name="ITEMCODE" />
+        </property>
+        <property name="itemName" type="java.lang.String">
+            <column name="ITEMNAME" />
+        </property>
+    </class>
+    
+    <joined-subclass name="com.tirthal.learning.mapping.inheritance.Book" extends="com.tirthal.learning.mapping.inheritance.Item" table="TPS_BOOK" lazy="false">
+        <key>
+            <column name="ITEM_ID" />
+        </key>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="bookType" type="java.lang.String">
+            <column name="BOOKTYPE" />
+        </property>
+    </joined-subclass>
+    
+    <joined-subclass name="com.tirthal.learning.mapping.inheritance.Laptop" extends="com.tirthal.learning.mapping.inheritance.Item" table="TPS_LAPTOP" lazy="false">
+        <key>
+            <column name="ITEM_ID" />
+        </key>
+        <property name="brand" type="java.lang.String">
+            <column name="BRAND" />
+        </property>
+        <property name="modelNo" type="java.lang.String">
+            <column name="MODELNO" />
+        </property>
+        <property name="processorType" type="java.lang.String">
+            <column name="PROCESSORTYPE" />
+        </property>
+    </joined-subclass>
+</hibernate-mapping>

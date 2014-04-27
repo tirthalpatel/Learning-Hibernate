@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2014 5:23:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false">
+
+	<!-- Employee java entity is mapped to "LIST_DEMO_EMPLOYEE" table -->
+    <class name="com.tirthal.learning.mapping.collection.list.Employee" table="LIST_DEMO_EMPLOYEE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="FIRSTNAME" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="LASTNAME" />
+        </property>
+        
+        <!-- Certificate value type list mapped to LIST_DEMO_CERTIFICATES table -->
+        <list name="certificates" table="LIST_DEMO_CERTIFICATES" inverse="false" lazy="true">
+            <key>
+                <column name="EMP_ID" />
+            </key>
+            <list-index column="POSITION" base="1"></list-index>
+            <composite-element class="com.tirthal.learning.mapping.collection.list.Certificate">              	
+		         <property name="id" type="int">
+		            <column name="ID" unique="false"/>
+		        </property>
+		        <property name="certiName" type="java.lang.String">
+		            <column name="NAME" />
+		        </property>
+            </composite-element>            
+        </list>
+    </class>
+</hibernate-mapping>

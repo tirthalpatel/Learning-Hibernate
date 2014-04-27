@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2014 1:51:31 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+
+	<!-- Student entity is mapped to "M2M_STUDENT" table -->
+    <class name="com.tirthal.learning.mapping.association.many2many.Student" table="M2M_STUDENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        <!-- Student can have any number of courses -->
+        <set name="courses" table="M2M_STUDENT_COURSE" lazy="true" cascade="all">
+            <key>
+                <column name="STUDENT_ID" />
+            </key>
+            <many-to-many column="COURSE_ID" class="com.tirthal.learning.mapping.association.many2many.Course" />
+        </set>
+    </class>
+    
+    <!-- Course entity is mapped to "M2M_COURSE" table -->
+    <class name="com.tirthal.learning.mapping.association.many2many.Course" table="M2M_COURSE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        <!-- Course can belong to any number of students -->
+        <set name="students" table="M2M_STUDENT_COURSE" lazy="true">
+            <key>
+                <column name="COURSE_ID" />
+            </key>
+            <many-to-many column="STUDENT_ID" class="com.tirthal.learning.mapping.association.many2many.Student" />
+        </set>
+    </class>
+</hibernate-mapping>

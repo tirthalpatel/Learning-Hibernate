@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2014 6:51:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false">
+
+	<!-- Employee entity mapping with M2O_EMPLOYEE table -->
+    <class name="com.tirthal.learning.mapping.association.many2one.Employee" table="M2O_EMPLOYEE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <!-- Many employee can be associated with one company -->
+        <many-to-one name="company" class="com.tirthal.learning.mapping.association.many2one.Company" not-null="true" unique="false">
+            <column name="COMPANY_ID" />
+        </many-to-one>
+    </class>
+    
+    <!-- Company entity mapping with M2O_COMPANY table -->
+    <class name="com.tirthal.learning.mapping.association.many2one.Company" table="M2O_COMPANY">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

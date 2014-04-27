@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2014 4:11:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false">
+
+	<!-- Person entity mapping with O2O_PERSON table -->
+    <class name="com.tirthal.learning.mapping.association.one2one.Person" table="O2O_PERSON">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <!-- one person can have one passport -->
+        <one-to-one name="passport" class="com.tirthal.learning.mapping.association.one2one.Passport" cascade="all"></one-to-one>
+    </class>
+    
+    <!-- Passport entity mapping with O2O_PASSPORT table -->
+    <class name="com.tirthal.learning.mapping.association.one2one.Passport" table="O2O_PASSPORT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <!--  reuse the person id as passport id instead of assigning new different id -->
+            <generator class="foreign"><param name="property">person</param></generator>
+        </id>
+        <property name="number" type="java.lang.String">
+            <column name="NUMBER" />
+        </property>
+        <!-- constrained to ensure that there has to be one matching person for each passport -->
+        <one-to-one name="person" class="com.tirthal.learning.mapping.association.one2one.Person" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

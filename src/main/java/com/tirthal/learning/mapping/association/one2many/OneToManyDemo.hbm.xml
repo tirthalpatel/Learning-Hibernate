@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2014 5:33:41 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+
+	<!-- Bill entity mapping with O2M_BILL table -->
+    <class name="com.tirthal.learning.mapping.association.one2many.Bill" table="O2M_BILL">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="billRefNo" type="java.lang.String">
+            <column name="BILL_REF_NO" />
+        </property>
+        <!-- inverse will tell hibernate that it is bi-directional -->
+        <bag name="lineItems" inverse="true" lazy="true" cascade="save-update">
+            <key>
+                <column name="BILL_ID" />
+            </key>
+            <!-- One bill is associated with many bill line items -->
+            <one-to-many class="com.tirthal.learning.mapping.association.one2many.BillLineItem" />
+        </bag>
+    </class>
+    
+    <!-- BillLineItem entity mapping with O2M_BILLLINEITEM table -->
+    <class name="com.tirthal.learning.mapping.association.one2many.BillLineItem" table="O2M_BILLLINEITEM">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="itemName" type="java.lang.String">
+            <column name="ITEM_NAME" />
+        </property>
+        <property name="price" type="double">
+            <column name="PRICE" />
+        </property>
+        <!-- Unique will ensure that one bill line item is associated with one bill -->
+        <many-to-one name="bill" class="com.tirthal.learning.mapping.association.one2many.Bill" not-null="true" unique="true">
+            <column name="BILL_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

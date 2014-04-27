@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+	  <!-- Database configuration -->
+	  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	  <property name="hibernate.connection.password">tirthal@123</property>
+	  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306</property>
+	  <property name="hibernate.connection.username">tirthal</property>
+	  <property name="hibernate.default_schema">hibernate_quick_start</property>
+	  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	  <property name="hibernate.show_sql">false</property>
+	  
+	  <!-- Automatic schema creation - ONLY RECOMMENDED FOR DEVELOPMENT. DO NOT USE IN PRODUCTION. -->
+	  <property name="hibernate.hbm2ddl.auto">create</property>
+	  
+	  <!-- Mapping files of Java Entities and SQL Tables -->
+	   
+	  <mapping class="com.tirthal.learning.helloworld.HelloWorld" resource="com/tirthal/learning/helloworld/HelloWorld.hbm.xml"/>	  
+	 
+	  <mapping class="com.tirthal.learning.mapping.component.Employee" resource="com/tirthal/learning/mapping/component/ComponentDemo.hbm.xml" />
+	  <mapping class="com.tirthal.learning.mapping.collection.set.Employee" resource="com/tirthal/learning/mapping/collection/set/SetDemo.hbm.xml" />
+	  <mapping class="com.tirthal.learning.mapping.collection.list.Employee" resource="com/tirthal/learning/mapping/collection/list/ListDemo.hbm.xml" />
+	  <mapping class="com.tirthal.learning.mapping.collection.map.Employee" resource="com/tirthal/learning/mapping/collection/map/MapDemo.hbm.xml" />
+	  <mapping class="com.tirthal.learning.mapping.collection.bag.Employee" resource="com/tirthal/learning/mapping/collection/bag/BagDemo.hbm.xml" />
+	  
+	  <mapping resource="com/tirthal/learning/mapping/association/one2one/OneToOneDemo.hbm.xml" />	  
+	  <mapping resource="com/tirthal/learning/mapping/association/one2many/OneToManyDemo.hbm.xml" />	  
+	  <mapping resource="com/tirthal/learning/mapping/association/many2one/ManyToOneDemo.hbm.xml" />
+	  <mapping resource="com/tirthal/learning/mapping/association/many2many/ManyToManyDemo.hbm.xml" />	  
+	  
+	  <mapping resource="com/tirthal/learning/mapping/inheritance/TablePerSubclassDemo.hbm.xml" />	  
+	  
+	  <mapping class="com.tirthal.learning.annotations.Country" />
+	 
+ </session-factory>
+</hibernate-configuration>
