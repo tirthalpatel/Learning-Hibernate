@@ -33,5 +33,5 @@ Hibernate Application Architecture - Key Classes [org.hiternate.*]
 Sample Image of Code snippet
 -----------------------------
 
-![sample hibernate code snippet] (https://raw.githubusercontent.com/tirthalpatel/Learning-Miscellaneous/master/HibernateQuickStart/images/Hibernate-GettingStartedCode.png "This shows you sample hibernate code snippet")
+![sample hibernate code snippet] (https://raw.githubusercontent.com/tirthalpatel/Learning-Hibernate/master/images/Hibernate-GettingStartedCode.png "This shows you sample hibernate code snippet")
  
