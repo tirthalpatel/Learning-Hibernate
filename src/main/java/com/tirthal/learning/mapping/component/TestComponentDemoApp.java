@@ -49,6 +49,10 @@ public class TestComponentDemoApp {
 		}
 		logger.debug("*********************************************");
 		
-		HibernateUtil.shutdown();
+		// By default close hibernate session factory
+		if(args!=null)
+		{
+			HibernateUtil.shutdown();
+		}
 	}
 }

@@ -19,7 +19,7 @@
 	   
 	  <mapping class="com.tirthal.learning.helloworld.HelloWorld" resource="com/tirthal/learning/helloworld/HelloWorld.hbm.xml"/>	  
 	 
-	  <mapping class="com.tirthal.learning.mapping.component.Employee" resource="com/tirthal/learning/mapping/component/ComponentDemo.hbm.xml" />
+	  <mapping package="com.tirthal.learning.mapping.component" class="Employee" resource="com/tirthal/learning/mapping/component/ComponentDemo.hbm.xml" />
 	  <mapping class="com.tirthal.learning.mapping.collection.set.Employee" resource="com/tirthal/learning/mapping/collection/set/SetDemo.hbm.xml" />
 	  <mapping class="com.tirthal.learning.mapping.collection.list.Employee" resource="com/tirthal/learning/mapping/collection/list/ListDemo.hbm.xml" />
 	  <mapping class="com.tirthal.learning.mapping.collection.map.Employee" resource="com/tirthal/learning/mapping/collection/map/MapDemo.hbm.xml" />
