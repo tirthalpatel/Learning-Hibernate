@@ -98,3 +98,8 @@ Also Refer
 ----------
  
 Hibernate Tutorials at - [tutorialspoint](http://www.tutorialspoint.com/hibernate/index.htm) & [javatpoint](http://www.javatpoint.com/hibernate-tutorial)
+
+Disclaimer
+----------
+
+The code snippet are mainly targeted for learning purpose, and not focused for producing production code quality.
